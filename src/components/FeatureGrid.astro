@@ -1,0 +1,45 @@
+---
+import { Tv, Zap, ShieldCheck, Globe } from 'lucide-astro';
+
+const features = [
+  {
+    title: "Krystallklar 4K & HD",
+    description: "Nyt favorittprogrammene og filmene dine i fantastisk oppløsning.",
+    icon: Tv
+  },
+  {
+    title: "Anti-Freeze Teknologi",
+    description: "Våre servere garanterer 99,9 % oppetid uten irriterende buffering.",
+    icon: Zap
+  },
+  {
+    title: "Stort Utvalg Kanaler & VOD",
+    description: "Stort utvalg av norske, nordiske og internasjonale kanaler.",
+    icon: Globe
+  },
+  {
+    title: "Sikker og Privat",
+    description: "All strømming er kryptert for din sikkerhet.",
+    icon: ShieldCheck
+  }
+];
+---
+
+<section id="funksjoner" class="py-20 scroll-mt-24">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-4">Hvorfor Velge <span class="text-[var(--color-brand-red)]">IPTV Norway</span>?</h2>
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto">Vi leverer den mest pålitelige IPTV-opplevelsen på markedet.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {features.map((feature) => (
+      <div class="glass p-8 text-center hover:-translate-y-2 transition-transform duration-300">
+        <div class="w-16 h-16 bg-[var(--color-brand-blue)] rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-blue-900/50">
+          <feature.icon class="w-8 h-8 text-white" />
+        </div>
+        <h3 class="text-xl font-bold mb-3">{feature.title}</h3>
+        <p class="text-gray-400 leading-relaxed">{feature.description}</p>
+      </div>
+    ))}
+  </div>
+</section>

@@ -1,0 +1,44 @@
+---
+import { MonitorPlay, Smartphone, Laptop, Tv } from 'lucide-astro';
+---
+
+<section id="enheter" class="py-20 border-t border-[var(--color-glass-border)] scroll-mt-24">
+  <div class="flex flex-col lg:flex-row items-center gap-12">
+    <div class="flex-1">
+      <h2 class="text-3xl md:text-5xl font-bold mb-6">Støtter Alle Dine <span class="text-blue-400">Enheter</span></h2>
+      <p class="text-xl text-gray-400 mb-8 leading-relaxed">
+        Bruk IPTV Norway på Smart TV-en i stuen, nettbrettet i sengen, eller telefonen mens du er på farten. Ett abonnement, alle enheter.
+      </p>
+      
+      <div class="grid grid-cols-2 gap-6">
+        <div class="flex items-center gap-4 glass p-4">
+          <Tv class="w-8 h-8 text-[var(--color-brand-red)]" />
+          <span class="font-bold">Smart TV</span>
+        </div>
+        <div class="flex items-center gap-4 glass p-4">
+          <MonitorPlay class="w-8 h-8 text-[var(--color-brand-red)]" />
+          <span class="font-bold">Strømmebokser</span>
+        </div>
+        <div class="flex items-center gap-4 glass p-4">
+          <Smartphone class="w-8 h-8 text-[var(--color-brand-red)]" />
+          <span class="font-bold">Smarttelefoner & Nettbrett</span>
+        </div>
+        <div class="flex items-center gap-4 glass p-4">
+          <Laptop class="w-8 h-8 text-[var(--color-brand-red)]" />
+          <span class="font-bold">Datamaskiner</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="flex-1 w-full relative">
+      <div class="absolute inset-0 bg-gradient-to-tr from-[var(--color-brand-red)]/20 to-[var(--color-brand-blue)]/20 blur-3xl rounded-full"></div>
+      <div class="glass p-2 relative z-10 rounded-2xl overflow-hidden aspect-video flex items-center justify-center bg-black/50 border-[var(--color-glass-border)]">
+        <!-- Placeholder for a high-quality device mockup image -->
+        <div class="text-center p-8">
+           <MonitorPlay class="w-20 h-20 text-gray-600 mx-auto mb-4" />
+           <p class="text-gray-500 font-medium">Bilde av Enheter / Mockup</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

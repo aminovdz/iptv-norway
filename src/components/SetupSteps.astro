@@ -1,0 +1,51 @@
+---
+import { ShoppingCart, Mail, PlayCircle } from 'lucide-astro';
+
+const steps = [
+  {
+    number: "01",
+    title: "Velg Abonnement",
+    description: "Velg en pakke som passer dine behov, fra 1 til 12 måneder.",
+    icon: ShoppingCart
+  },
+  {
+    number: "02",
+    title: "Motta Detaljer",
+    description: "Få innloggingsdetaljer og oppsettguide via WhatsApp eller e-post umiddelbart.",
+    icon: Mail
+  },
+  {
+    number: "03",
+    title: "Begynn å Se",
+    description: "Legg inn detaljene i appen og nyt all underholdningen i 4K.",
+    icon: PlayCircle
+  }
+];
+---
+
+<section class="py-20 border-t border-[var(--color-glass-border)] relative overflow-hidden">
+  <div class="absolute inset-0 bg-gradient-to-b from-transparent to-white/5 opacity-50"></div>
+  <div class="relative z-10 max-w-6xl mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">Så Enkelt Er Det Å <span class="text-[var(--color-brand-red)]">Komme I Gang</span></h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+      <!-- Connecting line for desktop -->
+      <div class="hidden md:block absolute top-12 left-[16%] right-[16%] h-0.5 bg-gradient-to-r from-transparent via-[var(--color-brand-red)]/50 to-transparent -z-10"></div>
+      
+      {steps.map((step) => (
+        <div class="glass p-8 text-center relative mt-6 md:mt-0">
+          <div class="absolute -top-6 left-1/2 -translate-x-1/2 bg-[var(--color-brand-red)] text-white text-sm font-bold w-12 h-12 rounded-full border-4 border-[var(--color-dark-bg)] flex items-center justify-center">
+            {step.number}
+          </div>
+          <div class="w-20 h-20 bg-white/5 rounded-full flex items-center justify-center mx-auto mt-6 mb-6">
+            <step.icon class="w-10 h-10 text-blue-400" />
+          </div>
+          <h3 class="text-2xl font-bold mb-3">{step.title}</h3>
+          <p class="text-gray-400 leading-relaxed">{step.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,49 @@
+---
+import { X, Check } from 'lucide-astro';
+
+const comparisons = [
+  { feature: "Pris per måned (ca)", us: "Fra 45,-", them: "800,- til 1200,-" },
+  { feature: "Antall kanaler", us: "Stort utvalg", them: "50 - 150" },
+  { feature: "Internasjonale kanaler", us: true, them: false },
+  { feature: "Live Sport & Fotball", us: true, them: "Ekstra dyre pakker" },
+  { feature: "VOD (Filmer/Serier)", us: true, them: false },
+  { feature: "Bindingstid", us: "Ingen", them: "12 måneder" },
+];
+---
+
+<section class="py-20 border-t border-[var(--color-glass-border)]">
+  <div class="max-w-4xl mx-auto px-4">
+    <div class="text-center mb-12">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4">IPTV Norway vs <span class="text-gray-400">Tradisjonell TV</span></h2>
+      <p class="text-xl text-gray-400">Se hvorfor tusenvis velger å bytte fra dyre, tradisjonelle leverandører.</p>
+    </div>
+
+    <div class="glass overflow-hidden">
+      <div class="grid grid-cols-3 bg-black/40 border-b border-[var(--color-glass-border)] p-4 md:p-6 text-center md:text-lg font-bold">
+        <div class="text-left text-gray-300">Funksjon</div>
+        <div class="text-[var(--color-brand-red)]">IPTV Norway</div>
+        <div class="text-gray-400">Tradisjonell TV</div>
+      </div>
+      
+      {comparisons.map((item, index) => (
+        <div class={`grid grid-cols-3 p-4 md:p-6 text-center border-b border-white/5 hover:bg-white/5 transition-colors items-center ${index === comparisons.length - 1 ? 'border-b-0' : ''}`}>
+          <div class="text-left font-medium text-gray-300 text-sm md:text-base">{item.feature}</div>
+          
+          <div class="font-bold flex items-center justify-center text-white">
+            {typeof item.us === 'boolean' 
+              ? (item.us ? <Check class="w-6 h-6 text-green-500" /> : <X class="w-6 h-6 text-red-500" />)
+              : item.us
+            }
+          </div>
+          
+          <div class="text-gray-500 flex items-center justify-center text-sm md:text-base">
+            {typeof item.them === 'boolean'
+              ? (item.them ? <Check class="w-6 h-6 text-green-500 opacity-50" /> : <X class="w-6 h-6 text-red-500 opacity-50" />)
+              : item.them
+            }
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

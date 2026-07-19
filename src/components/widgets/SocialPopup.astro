@@ -1,0 +1,47 @@
+---
+import { MessageCircle, Send, X } from 'lucide-astro';
+---
+<div id="social-popup" class="fixed bottom-24 right-4 md:right-8 z-40 glass p-5 max-w-sm w-64 transform translate-y-20 opacity-0 transition-all duration-500 shadow-2xl">
+  <button id="social-popup-close" class="absolute top-2 right-2 text-gray-400 hover:text-white">
+    <X class="w-4 h-4" />
+  </button>
+  
+  <p class="font-bold text-sm mb-3">Bli med i vårt fellesskap!</p>
+  
+  <div class="flex flex-col gap-2">
+    <a href="https://whatsapp.com/channel/0029VayVaLpD8SE3bf8wMY3v" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs bg-green-600 hover:bg-green-700 text-white py-2 px-3 rounded-lg transition-colors">
+      <MessageCircle class="w-4 h-4" />
+      WhatsApp Kanal
+    </a>
+    <a href="https://t.me/castvera_com" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-xs bg-blue-500 hover:bg-blue-600 text-white py-2 px-3 rounded-lg transition-colors">
+      <Send class="w-4 h-4" />
+      Telegram Kanal
+    </a>
+  </div>
+</div>
+
+<script>
+  function initSocialPopup() {
+    const popup = document.getElementById('social-popup');
+    const closeBtn = document.getElementById('social-popup-close');
+    
+    if (!popup || !closeBtn) return;
+    
+    if (sessionStorage.getItem('social_popup_closed')) return;
+
+    setTimeout(() => {
+      popup.classList.remove('translate-y-20', 'opacity-0');
+    }, 15000); // Show after 15 seconds
+
+    closeBtn.addEventListener('click', () => {
+      popup.classList.add('translate-y-20', 'opacity-0');
+      sessionStorage.setItem('social_popup_closed', 'true');
+    });
+  }
+
+  if (typeof requestIdleCallback === 'function') {
+    requestIdleCallback(initSocialPopup);
+  } else {
+    setTimeout(initSocialPopup, 500);
+  }
+</script>

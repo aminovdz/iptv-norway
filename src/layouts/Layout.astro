@@ -1,0 +1,33 @@
+---
+import '../styles/global.css';
+import BaseHead from '../components/BaseHead.astro';
+import StickyHeader from '../components/StickyHeader.astro';
+import FloatingWhatsApp from '../components/widgets/FloatingWhatsApp.astro';
+import ExitPopup from '../components/widgets/ExitPopup.astro';
+import SocialPopup from '../components/widgets/SocialPopup.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="no" class="scroll-smooth">
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body class="min-h-screen flex flex-col">
+		<StickyHeader />
+		<main class="flex-grow">
+			<slot />
+		</main>
+		<Footer />
+		<FloatingWhatsApp />
+		<ExitPopup />
+		<SocialPopup />
+	</body>
+</html>

@@ -1,0 +1,65 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	image?: string;
+}
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://iptvnorway.cloud');
+
+const { title, description, image = '/social-image.jpg' } = Astro.props;
+
+// JSON-LD Schema
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "IPTV Norway",
+  "url": "https://iptvnorway.cloud",
+  "publisher": {
+    "@type": "Organization",
+    "name": "IPTV Norway",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iptvnorway.cloud/logo.png"
+    }
+  }
+};
+---
+
+<!-- Global Metadata -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="generator" content={Astro.generator} />
+
+<!-- Canonical URL -->
+<link rel="canonical" href={canonicalURL} />
+
+<!-- Hreflang Tags -->
+<link rel="alternate" hreflang="no" href={canonicalURL} />
+<link rel="alternate" hreflang="nb-NO" href={canonicalURL} />
+<link rel="alternate" hreflang="nn-NO" href={canonicalURL} />
+<link rel="alternate" hreflang="x-default" href={canonicalURL} />
+
+<!-- Primary Meta Tags -->
+<title>{title}</title>
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content="iptv norway, beste iptv, iptv abonnement" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={new URL(image, Astro.url)} />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={Astro.url} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<!-- Structured Data -->
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

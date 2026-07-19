@@ -1,0 +1,53 @@
+---
+import { Star } from 'lucide-astro';
+
+const reviews = [
+  {
+    name: "Lars K.",
+    location: "Oslo",
+    text: "Har prøvd mange IPTV-tjenester, men IPTV Norway er uten tvil den beste. Ingen hakking under direktesendt sport og fantastisk bildekvalitet.",
+    rating: 5
+  },
+  {
+    name: "Ingrid M.",
+    location: "Bergen",
+    text: "Veldig enkelt å sette opp på min Smart TV. Kundeservicen via WhatsApp hjalp meg i gang på under 10 minutter. Anbefales sterkt!",
+    rating: 5
+  },
+  {
+    name: "Henrik T.",
+    location: "Trondheim",
+    text: "Kanalutvalget er enormt, og VOD-biblioteket oppdateres ofte med nye filmer. 12-måneders pakken gir utrolig mye for pengene.",
+    rating: 5
+  }
+];
+---
+
+<section id="anmeldelser" class="py-20 scroll-mt-24 border-t border-[var(--color-glass-border)]">
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-5xl font-bold mb-4">Hva Våre Kunder <span class="text-blue-400">Sier</span></h2>
+    <p class="text-xl text-gray-400 max-w-2xl mx-auto">Tusenvis av fornøyde nordmenn har allerede byttet til IPTV Norway.</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto px-4">
+    {reviews.map((review) => (
+      <div class="glass p-8 relative">
+        <div class="flex gap-1 mb-4 text-yellow-400">
+          {Array.from({ length: review.rating }).map(() => (
+            <Star class="w-5 h-5 fill-current" />
+          ))}
+        </div>
+        <p class="text-gray-300 italic mb-6 leading-relaxed">"{review.text}"</p>
+        <div class="flex items-center gap-4">
+          <div class="w-12 h-12 bg-gradient-to-br from-[var(--color-brand-red)] to-[var(--color-brand-blue)] rounded-full flex items-center justify-center font-bold text-lg">
+            {review.name.charAt(0)}
+          </div>
+          <div>
+            <h4 class="font-bold">{review.name}</h4>
+            <p class="text-sm text-gray-400">{review.location}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

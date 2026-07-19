@@ -1,0 +1,62 @@
+---
+import { Menu, X } from 'lucide-astro';
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 glass bg-[var(--color-dark-bg)]/80 border-b border-[var(--color-glass-border)] py-4 px-6 mx-auto w-full max-w-7xl mt-2">
+  <div class="flex items-center justify-between">
+    <a href="/" class="text-2xl font-bold tracking-tighter flex items-center gap-2">
+      <span class="text-white">IPTV</span><span class="text-[var(--color-brand-red)]">Norway</span>
+    </a>
+    
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-6 font-medium">
+      <a href="/#funksjoner" class="text-gray-300 hover:text-white transition-colors">Funksjoner</a>
+      <a href="/sports" class="text-gray-300 hover:text-white transition-colors">Sport</a>
+      <a href="/guides" class="text-gray-300 hover:text-white transition-colors">Guider</a>
+      <a href="/compare" class="text-gray-300 hover:text-white transition-colors">Sammenlign</a>
+      <a href="/locations" class="text-gray-300 hover:text-white transition-colors">Byer</a>
+      <a href="/#priser" class="text-gray-300 hover:text-white transition-colors">Priser</a>
+    </nav>
+
+    <div class="hidden md:block">
+      <a href="https://wa.me/18036582620" target="_blank" rel="noopener noreferrer" class="px-6 py-2 bg-[var(--color-brand-red)] hover:bg-red-700 text-white rounded-full font-bold transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(186,12,47,0.4)]">
+        Få Tilgang
+      </a>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="md:hidden p-2 text-white hover:text-gray-300 focus:outline-none" aria-label="Toggle Menu">
+      <Menu class="w-6 h-6" id="menu-icon" />
+      <X class="w-6 h-6 hidden" id="close-icon" />
+    </button>
+  </div>
+
+  <!-- Mobile Nav -->
+  <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 flex-col gap-4">
+    <a href="/#funksjoner" class="text-gray-300 hover:text-white block p-2">Funksjoner</a>
+    <a href="/sports" class="text-gray-300 hover:text-white block p-2">Sport</a>
+    <a href="/guides" class="text-gray-300 hover:text-white block p-2">Guider</a>
+    <a href="/compare" class="text-gray-300 hover:text-white block p-2">Sammenlign</a>
+    <a href="/locations" class="text-gray-300 hover:text-white block p-2">Byer</a>
+    <a href="/#priser" class="text-gray-300 hover:text-white block p-2">Priser</a>
+    <a href="https://wa.me/18036582620" class="mt-2 block w-full text-center px-6 py-3 bg-[var(--color-brand-red)] text-white rounded-full font-bold">
+      Få Tilgang
+    </a>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const menuIcon = document.getElementById('menu-icon');
+  const closeIcon = document.getElementById('close-icon');
+
+  if(btn && menu && menuIcon && closeIcon) {
+    btn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+      menuIcon.classList.toggle('hidden');
+      closeIcon.classList.toggle('hidden');
+    });
+  }
+</script>

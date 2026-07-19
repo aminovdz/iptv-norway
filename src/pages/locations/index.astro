@@ -1,0 +1,27 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="IPTV Tjenester i Hele Norge - IPTV Norway" description="Finn Norges beste iptv abonnement i din by. Vi leverer stabilt IPTV til Oslo, Bergen, Trondheim og hele landet.">
+  <div class="pt-32 pb-20 px-4 max-w-4xl mx-auto min-h-[70vh]">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">IPTV i <span class="text-[var(--color-brand-red)]">Din By</span></h1>
+      <p class="text-xl text-gray-400">Vi leverer Norges beste IPTV opplevelse uansett hvor du bor.</p>
+    </div>
+    
+    <div class="grid md:grid-cols-3 gap-6">
+      <a href="/locations/oslo" class="glass p-8 rounded-2xl hover:border-[var(--color-brand-red)] transition-colors text-center group block">
+        <h2 class="text-2xl font-bold mb-3 group-hover:text-[var(--color-brand-red)] transition-colors">Oslo</h2>
+        <p class="text-gray-400">IPTV Abonnement i Oslo</p>
+      </a>
+      <a href="/locations/bergen" class="glass p-8 rounded-2xl hover:border-[var(--color-brand-red)] transition-colors text-center group block">
+        <h2 class="text-2xl font-bold mb-3 group-hover:text-[var(--color-brand-red)] transition-colors">Bergen</h2>
+        <p class="text-gray-400">IPTV Abonnement i Bergen</p>
+      </a>
+      <a href="/locations/trondheim" class="glass p-8 rounded-2xl hover:border-[var(--color-brand-red)] transition-colors text-center group block">
+        <h2 class="text-2xl font-bold mb-3 group-hover:text-[var(--color-brand-red)] transition-colors">Trondheim</h2>
+        <p class="text-gray-400">IPTV Abonnement i Trondheim</p>
+      </a>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,24 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-red: #ba0c2f;
+  --color-brand-blue: #00205b;
+  --color-brand-white: #ffffff;
+  --color-dark-bg: #0a0f1c;
+  --color-dark-surface: rgba(255, 255, 255, 0.05);
+  --color-glass-border: rgba(255, 255, 255, 0.1);
+  
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-dark-bg)] text-white antialiased selection:bg-[var(--color-brand-red)] selection:text-white;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-[var(--color-dark-surface)] backdrop-blur-md border border-[var(--color-glass-border)] rounded-xl shadow-xl;
+  }
+}
