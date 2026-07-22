@@ -10,20 +10,46 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://iptvnorw
 const { title, description, image = '/social-image.jpg' } = Astro.props;
 
 // JSON-LD Schema
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "IPTV Norway",
-  "url": "https://iptvnorway.cloud",
-  "publisher": {
-    "@type": "Organization",
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
     "name": "IPTV Norway",
-    "logo": {
-      "@type": "ImageObject",
-      "url": "https://iptvnorway.cloud/logo.png"
+    "url": "https://iptvnorway.cloud",
+    "publisher": {
+      "@type": "Organization",
+      "name": "IPTV Norway",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://iptvnorway.cloud/logo.png"
+      }
+    }
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "IPTV Norway Abonnement",
+    "description": "Norges beste IPTV abonnement med live sport, filmer og serier i 4K-kvalitet uten bufring.",
+    "brand": {
+      "@type": "Brand",
+      "name": "IPTV Norway"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "bestRating": "5",
+      "worstRating": "1",
+      "ratingCount": "1342"
+    },
+    "offers": {
+      "@type": "Offer",
+      "url": "https://iptvnorway.cloud/#priser",
+      "priceCurrency": "NOK",
+      "price": "80.00",
+      "availability": "https://schema.org/InStock"
     }
   }
-};
+];
 ---
 
 <!-- Global Metadata -->
